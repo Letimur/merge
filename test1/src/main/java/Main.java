@@ -10,6 +10,7 @@ public class Main {
     //  private static final Logger logger = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
 
+        System.setProperty("console.encoding","Cp866");
         final Store store = new Store();
         Cass cass1 = new Cass(store, 1);
         Cass cass2 = new Cass(store, 2);
