@@ -58,9 +58,9 @@ class Store {
             product_next = (random.nextInt(2)+ 1);
             if (finiki <= 0 && product_next == 1) {
                 try {
-                    logger.info("Закончились финики");
+                    logger.info("dates has ended");
                     System.out.println("------------------------------------------");
-                    System.out.println("Товар закончился");
+                    System.out.println("Stuff has ended");
                     System.out.println("------------------------------------------");
                     wait(10000);
                     this.put_finiki();
@@ -72,13 +72,13 @@ class Store {
             if ((apples <= 0 && product_next == 2) || (oranges <= 0 && product_next == 3)) {
                 try {
                     if (apples <= 0) {
-                        logger.info("Яблоки закончились");
+                        logger.info("Apples has ended");
                     }
                     if (oranges <= 0) {
-                        logger.info("Апельсины закончились");
+                        logger.info("Oranges has ended");
                     }
                     System.out.println("------------------------------------------");
-                    System.out.println("Товар закончился");
+                    System.out.println("Stuff has ended");
                     System.out.println("------------------------------------------");
                     wait(10000);
                     this.put_oranges_apples();
@@ -88,28 +88,28 @@ class Store {
             }
             switch (product_first) {
                 case 1:
-                    logger.info("Покупатель " + customer + " на кассе " + num + " купил 1 финик");
+                    logger.info("Buyer " + customer + " on cass " + num + " bought 1 date fruit");
                     finiki--;
-                    System.out.println("Покупатель " + customer + " на кассе " + num + " купил 1 финик");
+                    System.out.println("Buyer " + customer + " on cass " + num + " bought 1 date fruit");
                     break;
                 case 2:
-                    logger.info("Покупатель " + customer + " на кассе " + num + " купил 1 яблоко");
+                    logger.info("Buyer " + customer + " on cass " + num + " bought 1 apple");
                     apples--;
-                    System.out.println("Покупатель " + customer + " на кассе " + num + " купил 1 яблоко");
+                    System.out.println("Buyer " + customer + " on cass " + num + " bought 1 apple");
                     break;
                 case 3:
-                    logger.info("Покупатель " + customer + " на кассе " + num + " купил 1 апельсин");
+                    logger.info("Buyer " + customer + " on cass " + num + " bought 1 orange");
                     oranges--;
-                    System.out.println("Покупатель " + customer + " на кассе " + num + " купил 1 апельсин");
+                    System.out.println("Buyer " + customer + " on cass " + num + " bought 1 orange");
                     break;
-            }System.out.println("Фиников на складе: " + finiki);
-            System.out.println("Яблок на складе: " + apples);
-            System.out.println("Апельсинов на складе: " + oranges);
+            }System.out.println("Dates in storage: " + finiki);
+            System.out.println("Apples in storage: " + apples);
+            System.out.println("Oranges in storage: " + oranges);
             customer++;
             product_first = product_next;
             try {
                 System.out.println("------------------------------------------");
-                System.out.println("Следующий покупатель ждёт " + sec + "сек.");
+                System.out.println("Next buyer wait " + sec + "sec.");
                 System.out.println("------------------------------------------");
                 System.out.println();
                 System.out.println();
@@ -125,10 +125,10 @@ class Store {
         synchronized (this) {
 
             if (finiki <= 0) {
-                logger.info("Поступление фиников");
+                logger.info("Dates incoming");
                 finiki = 6;
                 System.out.println("------------------------------------------");
-                System.out.println("Поступление фиников");
+                System.out.println("Dates incoming");
                 System.out.println("------------------------------------------");
                 System.out.println();
                 System.out.println();
@@ -142,20 +142,20 @@ class Store {
         synchronized (this) {
 
             if (apples <= 0) {
-                logger.info("Поступление яблок");
+                logger.info("Apples incoming");
                 apples = 6;
                 System.out.println("------------------------------------------");
-                System.out.println("Поступление яблок");
+                System.out.println("Apples incoming");
                 System.out.println("------------------------------------------");
                 System.out.println();
                 System.out.println();
                 notify();
             }
             if (oranges <= 0) {
-                logger.info("Поступление апельсинов");
+                logger.info("Oranges incoming");
                 oranges = 6;
                 System.out.println("------------------------------------------");
-                System.out.println("Поступление апельсинов");
+                System.out.println("Oranges incoming");
                 System.out.println("------------------------------------------");
                 System.out.println();
                 System.out.println();
@@ -178,7 +178,7 @@ class Cass implements Runnable {
 
     //  @Override
     public void run() {
-        System.out.println("Покупатель вошел на кассу " + num);
+        System.out.println("Buyer come on cass # " + num);
         System.out.println();
         while (store.customer <= 40) {
             store.get(num);
