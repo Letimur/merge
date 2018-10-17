@@ -3,6 +3,7 @@ import java.util.logging.Logger;
 import java.util.logging.FileHandler;
 import java.io.IOException;
 import java.util.logging.SimpleFormatter;
+import java.util.jar.Manifest;
 
 public class Main {
 
