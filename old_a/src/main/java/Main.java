@@ -37,7 +37,7 @@ class Store {
     protected int oranges = 6;
     Random random = new Random();
 
-    int sec = (random.nextInt(7)+3);
+    int sec = (random.nextInt(7)+10);
     int product_first = (random.nextInt(2)+ 1);
     int product_next = (random.nextInt(2)+ 1);
     protected int customer = 1;
